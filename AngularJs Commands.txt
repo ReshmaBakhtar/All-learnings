@@ -1,0 +1,41 @@
+Commands for Angular Js project :
+
+1. install npm
+run "npm -v" after installation of node package manager as Angular Js needs npm.
+
+2. Then run below command to install angular js CLI latest version
+
+npm install -g @angular/cli
+
+3. Then create angular project using below command
+
+ng new my-app
+
+where ng - it is for angular
+
+4. then run below command to compile and run the project and -o is for open the cbrowser localhost. it will be running on 4200 by default.
+
+ng serve -o
+
+5. To create any component run below commands
+
+ng g c components/checkin
+
+where g - generate
+c - component
+it will be created under the components folder and checkin will be the name of the component.
+It will create all the 4 files i.e.
+
+checkin.component.css ---> where css code will be there
+checkin.component.html ---> all the elemnts displayed on the browser goes in html file
+checkin.component.ts ---> all the logic goes here in typescript file which will be compiled into the .js file later
+checkin.component.spec.ts ---> all the test case goes here
+
+and update app.module.ts file with this components. ---> this file is like web.xml in java 
+
+6. To create any Services run below commands
+
+ng g s components/checkin
+
+where g - generate
+s - component

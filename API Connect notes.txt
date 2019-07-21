@@ -1,0 +1,303 @@
+API Connect:
+
+features :
+
+1. loopback :
+
+services, relationships, database tables, services - NoSQL, services - SQL
+
+2. Hook
+
+3. Analytics
+
+4. transformation, Routing
+
+5. Platform (any cloud including IBM cloud)
+
+6. manage API - Rules
+
+7.security
+
+8. Consuming
+
+9. Platform for all your API'security
+
+10. REST services
+
+11. WEB services
+
+12. PLANS
+
+13. Developer portal
+===============================
+
+Component of API Connect:
+
+1. developer portal -  8 GB
+
+2. Runtime Gateway like Microgateway, DataPower gateway -8GB
+
+API connect does not have servers so microgateway (Node.js) and DataPower gateway are container where these services run - 8 GB
+
+3. API connect  ToolKit(API Designer) - 8 GB - it has rest services to publish.
+
+4. API Manager : it has Organisation which has Catalog having Runtime gateway like Microgateway, DataPower gateway  and Developer portal.
+
+=====================================
+
+To connect aPI Toollkit and API manager there is IP linked.
+
+How to create the API Toolkit for development : has all the below
+
+API designer (browser)
+
+Command console (APIC console)
+
+API Explorer :
+
+First we need to install  Node.js then using npm install we can install APIC toolkit. (node.js contains microgate runtime) and its our responsibilty to intsall datapower runtime.
+
+==========================================
+
+for production we need : API manager, developer portal and datapower(run as docker container)
+we cannot create Datapower in local as ibm provides datapower as VM. 
+
+we cannot create Developer portal in local as ibm provides datapower as VM. (has IP)
+
+we cannot create API Manager in local as ibm provides datapower as VM. (has IP). we need to create IP address of developer portal and datapower ip and give it in the API Manager Catalog.
+
+==========================================
+Command for installation.
+
+To install node
+node -v 
+
+To install many comonents in node
+npm -v
+
+when we want to create services in node.js we need Express. run below command.. Express is a server to run rest service in node.
+
+npm install express 
+
+For API connect we have Microgateway server to deploy and run the service (also to run the proxy services) but to run the services written in node.js we need express server.
+
+node -v 
+
+v8.1.4
+
+npm -v 
+
+5.10.0
+
+apic -v  for api connect verison
+
+v5.0.8.4
+
+// To install api connect :
+
+npm install -g apiconnect
+
+here -g is for global
+
+//  for checking the error in js file
+
+node --check index.js
+
+// To install express
+
+ npm install express
+ 
+ // To install object-parser
+ 
+ npm install object-parser
+ 
+//if we made some changes in .js file so we can run this so that changes can be reflected nodemonitoring
+
+npm install nodemon
+
+// to uninstall node
+
+npm uninstall 
+ 
+==================
+
+API Connect Toolkit:
+
+//to install the toolkit from npm, below command
+
+npm install -g apiconnect
+
+// check if toolkit is installed or not
+
+apic -v
+
+// to open or start the api designer to create services. we cant create service without using pi designer.
+
+apic edit
+
+// We need to stop if we want to delete something. it will stop all ur servoices.
+
+apic stop --all
+
+
+// remove  ur existing copy of 'apiconnect' and clear the npm cache
+
+npm uninstall -g apiconnect --cache-clear
+
+//reinstall the toolkitnpm in
+
+npm install -g apiconnect
+
+// to download the specific version 
+
+npm install -g apiconnect@apic-v5.0.8.1
+
+// show all the commands 
+
+apic
+
+// Run this coomand when you do everything on local i.e on-premise
+this command will skip the ibm bluemix cloud login each time. 1st time we will do in env for windows set is there
+
+export SKIP_LOGIN=true
+
+// To open the API explorer to test the services
+
+apic explore
+
+// to start a service but go the the folder and then run the command
+
+apic start
+
+// to stop a service but go the the folder and then run the command
+
+apic stop
+
+//if we want some inforamtion about  service go the the folder where service is located
+
+apic services:get
+
+// To create a service. we can create the services either by using UI or the command 
+
+apic create --type typeOfService
+
+apic create --type api (it will create rest api)
+
+where typeofservice is rest service or web service or loopback or datamodel or datasource
+
+//to get help
+apic -h
+
+to create Loopback project 
+create folder 
+
+// this is loopback command
+apic loopback
+
+// to create the relation between 2 tables  from same database or  2 tables from database
+
+// we shoud have 1 primary key and foreign keys.
+apic loopback:relation
+ and ans the below question.
+
+====================
+Mongo db commands 
+
+to connect to mongoo db
+ mongo --host hostname
+ 
+ to show databases:
+ 
+ show dbs
+ 
+ to show tables
+ show collections
+ 
+ to show all the rows in the tables/collection in the mongodb
+ 
+ db.collectionName.find()
+ 
+ use dbname;
+ 
+ show collectionname
+ 
+ ================
+ 
+ hOOKS :
+ 
+ WE CAN IMPLEMENT HOOKS IN LOOPBACK ONLY NOT IN REST SERVICE OR WEB SERVICES.
+ 
+ WE have 2 files .js and .json for each table. we can inckude hook in .js file.
+ 
+ ========================
+ 
+ Restservice and soap are running in only one port i.e. 4001
+ 
+ but the loopback runs on the 2 ports 4001 and 4002.
+ 
+ 4001 - for loopback
+ 4002 - for microgateway
+ 
+ In Loopback application tehre is Loopback application which has its wn logic to communicate with dabase so it runs on another port and the gateway running on another port.
+ 
+ 2 types of hooks - operation and remote
+ 
+ opertion : it is there for model object modulation. i.e. to get the access.  it talks about the method.
+ 
+ remote : acts as a prehandle and posthandle in java. used for logging mainly. when u want to intercept, log, and ,odify information before and after
+ a specific API operation. Remote hooks intercept message between the API endpoint and API application
+ ============================
+ 
+ condition : api.operation.id == 100
+ 
+ ===========================
+ 
+There aee various polies
+
+IF
+
+SWITCH - for normal switch operation
+
+THROW
+
+OPERATION SWITCH - for get/post/put and delete
+
+HandleBars 
+
+Map
+
+
+
+XMLTOJSON
+
+rest Service
+https://services.groupkt.com/country/get/iso3code/IND
+
+SOAP service
+http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso
+
+===========
+
+Docker is a container for VMS.
+
+docker command:
+
+docker -v
+docker ps
+docker inspect docker id
+docker kill docker id
+dcker logs dockerid
+sudo apt-get install docker-ce(install docker engine)
+docker info
+docker pull ibmcom/datapower:latest
+   https://hub.docker.com/ibmcom/datapower - this coommand will pdownload the outside docker to inside
+docker run
+Dcker has following components;
+
+docker image
+docker file
+docker container
+
+rvk_vivek@yahoo.co.in
+9865696484
+

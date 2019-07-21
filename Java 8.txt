@@ -1,0 +1,144 @@
+New features in Java 8 
+
+1. Lambda expression
+2. stream API
+3. Date and Time API
+4. Functional interface
+5. Interface defaults and static methods.
+6. optional
+7. Base64 encoding and decoding
+8. Nashron javascript engine
+9. Collections API enhancements
+10. Concurrency enhancements
+11. Fork/Join  Framework enhancements
+12. Spliterator
+13. Internal Iteration
+14. Type and Repeatable annotations
+15. Method parameter reflections
+
+Benefits of java 8
+
+1. support for functional program by lambda and streams
+
+2. ease of high volume data processing by streams
+
+3. ease of use by getting parameter names through reflections
+
+4. reusable code with enhanced collection apis
+
+5. smart exceptional handling using optional
+
+6. control on jvm with new parameters
+
+7. Enhanced encryption support with Base64
+
+8. faster execution with Nashorn Javascript engine support.
+
+===========================
+
+what is lambda expression?
+
+lambda expression is an anonymous function which dont have access modifiers, name and return type . it will take the input and provide the result.
+
+imp : Lambda expression can be passed as a parameter in a method . so that we can treat code in lambda exp as data. this piece of code can be
+passed as paramter to other obhject and method.
+
+Arrays.asList("a","b","c").forEach(e -> sop(e));
+
+Parameter list : e
+arrow = ->
+Body = sop(e)
+
+============================
+
+3 different parts of Lambda expn:
+
+1. parameter list : its optional. 0 or more parameters
+2. lambda arrow operator -> : it seperate the list of parameters and the body of lambda
+3. Lambda expression body : the piece of code we want to execute
+
+==========================
+
+Datatype of Lambda expression ?
+
+lambda expression fulfills the purpose of passing code as data.
+
+the data type of lambda expression is functional interface.
+
+in most of the cases it is java.lang.Runnable interface
+
+========================
+
+meaning of (e ->sop(e));
+
+the lambda expn takes e as the input parameter and 
+print it via Systsem.out.
+
+=====================
+
+why did oracle release a new version of Java like Java 8 ?
+
+1. Functional programming
+2. Cloud computing : can pass code as data and run the same code on multiple servers
+3. Big data
+4. optional : borrowed from Guava Google lbrary and can prevent from null pointer exception it this used.
+
+========================
+
+Advantages of lambda expression ?
+
+If we want to pass code(object) as an method paramter, we will use lambda expn. Compare to pass anonymous class it is easier to pass lambda expression.
+we can pass a method as a parameter to another method as well.
+
+1. Functional programming
+2. Cloud computing
+3. serverless arthitecture
+
+===========================
+
+Functional interface in java 8 ?
+
+a interface having only one abstract method. a defult menthod is not abstract.
+
+Runnable, java.util.concurrent.callable interface are egs.
+
+========================
+
+difference between collections and stream API in java 8 ?
+
+1. collection is there since java 1.2 while stream are introduced in java 8.
+
+2. collection api is used to store data in different kinds of data structure. Stream api is used for computation of data on large set of objects.
+
+3. With collection API we can store a finite number of elements in a datastructure . With Stream API, we can handle stream of data that can contain
+infinite no. of objects.
+
+4. eager vs lazy : collection API constructs objects in a eager manner. in stream API create objects in lazy manner.
+
+5. most of the collection APIs supports iteration and consumption of elements multiple times. With Stream API we can consume or iterate 
+elements only once.
+
+===================
+
+Main uses of stream API in Java 8?
+
+
+1. it helps in using data in a declarative way. We can make use of Database functions like Max, Min etc without running a full iteration.
+2. it makes good use of mutli-core artichetures without worrying about multi-threading code.
+3. We can create a pipeline of data operations with Java stream that can run in a sequence or parallel.
+4. it provides supports for GROUP by, Order By operations 
+5. It supports writing for code in Functional programming style.
+6. it supports for parallel processing of data during high performance or big ata.
+
+================================
+Difference between terminal and intermidate operation in streams in java 8?
+
+================================
+
+what is spliterator in java 8 ?
+
+
+
+
+
+ 
